@@ -52,12 +52,12 @@ if env['debug']:
 # This command generates the header with git revision information
 def gen_gitrev(env, target, source):
 	revid = subprocess.check_output(["git", "rev-parse", "HEAD"]);
-	fulltag = subprocess.check_output(["git", "tag", "--sort=v:refname"]).split('\n')[-1]
+	fulltag = subprocess.check_output(["git", "tag", "--sort=v:refname"]).split(b'\n')[-1]
 	tagrev = subprocess.check_output(["git", "rev-parse", fulltag]) if fulltag else ""
 	with open(target[0].path, 'w') as gitrev_hpp:
 		print(file=gitrev_hpp)
-		print('#define GIT_REVISION "' + revid[0:7] + '"', file=gitrev_hpp)
-		print('#define GIT_TAG "' + fulltag + '"', file=gitrev_hpp)
+		print('#define GIT_REVISION "' + str(revid[0:7]) + '"', file=gitrev_hpp)
+		print('#define GIT_TAG "' + str(fulltag) + '"', file=gitrev_hpp)
 		print('#define GIT_TAG_REVISION "' + tagrev[0:7] + '"', file=gitrev_hpp)
 		print(file=gitrev_hpp)
 if path.exists(".git"):
