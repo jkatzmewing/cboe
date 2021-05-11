@@ -1940,6 +1940,9 @@ void do_monster_turn()
 						if (party.age % 4 == 0) {
 							if (cur_monst->m_d.mp < cur_monst->m_d.max_mp)
 								cur_monst->m_d.mp += 2;
+							}
+
+						if (party.age % 8 == 0) {
 							move_to_zero(cur_monst->m_d.status[STATUS_DUMB]);
 							}
 					} // end take care of monsters
