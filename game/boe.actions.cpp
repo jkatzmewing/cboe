@@ -569,7 +569,7 @@ Boolean handle_action(POINT the_point, WPARAM wparam, LPARAM lparam) {
     destination = cur_loc;
 
     if ((overall_mode == MODE_OUTDOORS) || (overall_mode == MODE_TOWN) ||
-        (overall_mode == MODE_COMBAT))
+        (overall_mode == MODE_COMBAT)) {
       if ((i == 4) && (j == 4) && (right_button == false)) { // Pausing
         if (overall_mode == MODE_COMBAT) {
           char_stand_ready();
@@ -610,6 +610,7 @@ Boolean handle_action(POINT the_point, WPARAM wparam, LPARAM lparam) {
           put_pc_screen();
           check_fields(c_town.p_loc, 1, 0);
         }
+      }
 
         did_something = true;
         need_redraw = true;

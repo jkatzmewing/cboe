@@ -298,11 +298,12 @@ void pc_attack(short who_att, short target) {
   for (i = 0; i < 24; i++)
     if (((adven[who_att].items[i].variety == ITEM_TYPE_ONE_HANDED) ||
          (adven[who_att].items[i].variety == ITEM_TYPE_TWO_HANDED)) &&
-        (adven[who_att].equip[i] == true))
+        (adven[who_att].equip[i] == true)) {
       if (weap1 == 24)
         weap1 = i;
       else
         weap2 = i;
+    }
 
   hit_adj =
       (-5 * minmax(-8, 8, (int)adven[who_att].status[STATUS_BLESS_CURSE])) +
@@ -3298,7 +3299,7 @@ Boolean monst_cast_priest(creature_data_type *caster, short targ) {
   else if ((friend_levels_near <= -10) && (get_ran(1, 0, 10) < 7) &&
            (emer_spells[level][1] != SPELL_MONST_PRIEST_NO_SPELL))
     spell = emer_spells[level][1];
-  else if ((target_levels > 50 < 0) && (get_ran(1, 0, 10) < 7) &&
+  else if ((target_levels > 50 && target_levels < 0) && (get_ran(1, 0, 10) < 7) &&
            (emer_spells[level][2] != SPELL_MONST_PRIEST_NO_SPELL))
     spell = emer_spells[level][2];
   else {

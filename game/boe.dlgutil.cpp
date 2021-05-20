@@ -85,9 +85,9 @@ void end_shop_mode() {
   ShowScrollBar(shop_sbar, SB_CTL, false);
   if (store_pre_shop_mode == 20) {
     sprintf(old_str1, "You conclude your business.");
-    sprintf(old_str2, "");
+    old_str2[0] = 0;
     sprintf(one_back1, "You conclude your business.");
-    sprintf(one_back2, "");
+    one_back2[0] = 0;
 
     strnum1 = strnum2 = oldstrnum1 = oldstrnum2 = 0;
     place_talk_str(old_str1, "", 0, dummy_rect);
@@ -789,7 +789,7 @@ void handle_talk_event(POINT p) {
   if ((which_talk_entry < 0) || (which_talk_entry > 59)) {
     strcpy((char *)one_back1, (char *)old_str1);
     strcpy((char *)one_back2, (char *)old_str2);
-    sprintf((char *)old_str2, "");
+    old_str2[0] = 0;
     sprintf((char *)old_str1, "%s",
             data_store3->talk_strs[store_personality % 10 + 160]);
     if (strlen((char *)old_str1) < 2)
@@ -823,7 +823,7 @@ void handle_talk_event(POINT p) {
       strnum1 = strnum2;
       strcpy(place_string1, place_string2);
     }
-    sprintf(place_string2, "");
+    place_string2[0] = 0;
     strnum2 = 0;
     break;
   case TALK_SET_SDF:
@@ -854,14 +854,14 @@ void handle_talk_event(POINT p) {
       }
     }
     strnum2 = 0;
-    sprintf(place_string2, "");
+    place_string2[0] = 0;
     break;
   case TALK_DEP_ON_TIME:
     if (day_reached((unsigned char)a, 0) == true) {
       strnum1 = strnum2;
       strcpy(place_string1, place_string2);
     }
-    sprintf(place_string2, "");
+    place_string2[0] = 0;
     strnum2 = 0;
     break;
   case TALK_DEP_ON_TIME_AND_EVENT:
@@ -869,7 +869,7 @@ void handle_talk_event(POINT p) {
       strnum1 = strnum2;
       strcpy(place_string1, place_string2);
     }
-    sprintf(place_string2, "");
+    place_string2[0] = 0;
     strnum2 = 0;
     break;
   case TALK_DEP_ON_TOWN:
@@ -877,7 +877,7 @@ void handle_talk_event(POINT p) {
       strnum1 = strnum2;
       strcpy(place_string1, place_string2);
     }
-    sprintf(place_string2, "");
+    place_string2[0] = 0;
     strnum2 = 0;
     break;
   case TALK_BUY_ITEMS:
@@ -940,7 +940,7 @@ void handle_talk_event(POINT p) {
       party.gold -= a;
       put_pc_screen();
     }
-    sprintf(place_string2, "");
+    place_string2[0] = 0;
     strnum2 = 0;
     break;
   case TALK_BUY_SDF:
@@ -959,14 +959,14 @@ void handle_talk_event(POINT p) {
         give_error("Invalid Stuff Done flag called in conversation.", "", 0);
     }
     strnum2 = 0;
-    sprintf(place_string2, "");
+    place_string2[0] = 0;
     break;
   case TALK_BUY_SHIP:
     if (party.gold < a) {
       strnum1 = strnum2;
       strnum2 = 0;
       strcpy(place_string1, place_string2);
-      sprintf(place_string2, "");
+      place_string2[0] = 0;
       break;
     } else {
       for (i = b; i <= b + c; i++)
@@ -974,7 +974,7 @@ void handle_talk_event(POINT p) {
           party.gold -= a;
           put_pc_screen();
           party.boats[i].property = false;
-          sprintf(place_string2, "");
+	  place_string2[0] = 0;
           strnum2 = 0;
           i = 1000;
         }
@@ -982,7 +982,7 @@ void handle_talk_event(POINT p) {
         break;
     }
     sprintf(place_string1, "There are no boats left.");
-    sprintf(place_string2, "");
+    place_string2[0] = 0;
     strnum1 = -1;
     strnum2 = -1;
     break;
@@ -991,7 +991,7 @@ void handle_talk_event(POINT p) {
       strnum1 = strnum2;
       strnum2 = 0;
       strcpy(place_string1, place_string2);
-      sprintf(place_string2, "");
+      place_string2[0] = 0;
       break;
     } else {
       for (i = b; i <= b + c; i++)
@@ -999,7 +999,7 @@ void handle_talk_event(POINT p) {
           party.gold -= a;
           put_pc_screen();
           party.horses[i].property = false;
-          sprintf(place_string2, "");
+	  place_string2[0] = 0;
           strnum2 = 0;
           i = 1000;
         }
@@ -1007,7 +1007,7 @@ void handle_talk_event(POINT p) {
         break;
     }
     sprintf(place_string1, "There are no horses left.");
-    sprintf(place_string2, "");
+    place_string2[0] = 0;
     strnum1 = -1;
     strnum2 = -1;
     break;
@@ -1024,7 +1024,7 @@ void handle_talk_event(POINT p) {
       party.spec_items[a] = 1;
     }
     strnum2 = 0;
-    sprintf(place_string2, "");
+    place_string2[0] = 0;
     break;
   case TALK_BUY_JUNK:
     start_shop_mode(SHOP_MAGIC_SHOP_1 + b, 0, 9, a, place_string1);
@@ -1041,7 +1041,7 @@ void handle_talk_event(POINT p) {
       party.can_find_town[b] = 1;
     }
     strnum2 = 0;
-    sprintf(place_string2, "");
+    place_string2[0] = 0;
     break;
   case TALK_END_FORCE:
     talk_end_forced = true;
@@ -1070,8 +1070,8 @@ void handle_talk_event(POINT p) {
     if ((s1 >= 0) || (s2 >= 0)) {
       strnum1 = -1;
       strnum2 = -1;
-      sprintf(place_string1, "");
-      sprintf(place_string2, "");
+      place_string1[0] = 0;
+      place_string2[0] = 0;
     }
     get_strs(place_string1, place_string2, 2, s1, s2);
     if (s1 >= 0)
@@ -1087,8 +1087,8 @@ void handle_talk_event(POINT p) {
     if ((s1 >= 0) || (s2 >= 0)) {
       strnum1 = -1;
       strnum2 = -1;
-      sprintf(place_string1, "");
-      sprintf(place_string2, "");
+      place_string1[0] = 0;
+      place_string2[0] = 0;
     }
     get_strs(place_string1, place_string2, 0, s1, s2);
     if (s1 >= 0)
