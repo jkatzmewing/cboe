@@ -4,7 +4,7 @@ void load_file();
 void leave_town();
 void get_reg_data();
 void remove_party_from_scen();
-void Get_Path(char* path);
+void Get_Path(char *path);
 short load_items_list();
 void load_town_strings(short which_town);
 void port_scenario(scenario_data_type *scenario);
