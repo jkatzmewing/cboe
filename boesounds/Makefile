@@ -7,7 +7,7 @@ RES  = Blades_of_Exile_private.res
 INCS =  -I"include" 
 CXXINCS = 
 BIN  = boesounds.dll
-CXXFLAGS = $(CXXINCS) -Wall -g -std=c++17 -DWIN32
+CXXFLAGS = $(CXXINCS) -Wall -g -std=c++17 -DWIN32 -Werror
 RM = rm -f
 
 .PHONY: all all-before all-after clean clean-custom

@@ -10,7 +10,7 @@ LIBS =  -lwinmm -mwindows -lwinmm -static-libgcc -static-libstdc++
 INCS =  -I"include" 
 CXXINCS =  
 BIN  = "Blades of Exile Character Editor.exe"
-CXXFLAGS = $(CXXINCS) -Wall -std=c++17 -DWIN32
+CXXFLAGS = $(CXXINCS) -Wall -std=c++17 -DWIN32 -Werror
 
 .PHONY: all all-before all-after clean clean-custom
 
