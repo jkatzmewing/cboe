@@ -1,64 +1,65 @@
 #ifndef _CONSTS_H
-	#define _CONSTS_H
+#define _CONSTS_H
 
 /*
-	This file contain numerous constans in form of #defines.
-	Almost all of this constants cannot be changed because
-	that would make the game work improperly.
+        This file contain numerous constans in form of #defines.
+        Almost all of this constants cannot be changed because
+        that would make the game work improperly.
 */
 
-#define NUM_OF_PCS		6
-#define INVALID_PC		NUM_OF_PCS
+#define NUM_OF_PCS 6
+#define INVALID_PC NUM_OF_PCS
 
-#define INVALID_TOWN	200
+#define INVALID_TOWN 200
 
-#define NUM_OF_BOATS	30
-#define NUM_OF_HORSES	30
+#define NUM_OF_BOATS 30
+#define NUM_OF_HORSES 30
 
-#define SFX_SMALL_BLOOD		1
-#define SFX_MEDIUM_BLOOD	2
-#define SFX_LARGE_BLOOD		4
-#define SFX_SMALL_SLIME 	8
-#define SFX_BIG_SLIME 		16
-#define SFX_ASH 			32
-#define SFX_BONES 			64
-#define SFX_RUBBLE 			128
+#define SFX_SMALL_BLOOD 1
+#define SFX_MEDIUM_BLOOD 2
+#define SFX_LARGE_BLOOD 4
+#define SFX_SMALL_SLIME 8
+#define SFX_BIG_SLIME 16
+#define SFX_ASH 32
+#define SFX_BONES 64
+#define SFX_RUBBLE 128
 
 /* overall mode; some seem to be missing */
- #define MODE_OUTDOORS 0
- #define MODE_TOWN 1
- #define MODE_TALK_TOWN 2 // looking for someone to talk
- #define MODE_TOWN_TARGET 3 // spell target, that is
- #define MODE_USE 4
- #define MODE_COMBAT 10
- #define MODE_SPELL_TARGET 11
- #define MODE_FIRING 12 // firing from bow or crossbow
- #define MODE_THROWING 13 // throwing missile
- #define MODE_FANCY_TARGET 14 // spell target, that is
- #define MODE_DROPPING 15
- #define MODE_TALKING 20
- #define MODE_SHOPPING 21
- #define MODE_LOOK_OUTDOORS 35 // looking at something
- #define MODE_LOOK_TOWN 36
- #define MODE_LOOK_COMBAT 37
- #define MODE_STARTUP 45
- #define MODE_REDRAW 50
- #define MODE_CUTSCENE 51
+#define MODE_OUTDOORS 0
+#define MODE_TOWN 1
+#define MODE_TALK_TOWN 2   // looking for someone to talk
+#define MODE_TOWN_TARGET 3 // spell target, that is
+#define MODE_USE 4
+#define MODE_COMBAT 10
+#define MODE_SPELL_TARGET 11
+#define MODE_FIRING 12       // firing from bow or crossbow
+#define MODE_THROWING 13     // throwing missile
+#define MODE_FANCY_TARGET 14 // spell target, that is
+#define MODE_DROPPING 15
+#define MODE_TALKING 20
+#define MODE_SHOPPING 21
+#define MODE_LOOK_OUTDOORS 35 // looking at something
+#define MODE_LOOK_TOWN 36
+#define MODE_LOOK_COMBAT 37
+#define MODE_STARTUP 45
+#define MODE_REDRAW 50
+#define MODE_CUTSCENE 51
 
-/* adven[i].main_status */ //complete
-#define MAIN_STATUS_ABSENT 0		// absent, empty slot
+/* adven[i].main_status */   // complete
+#define MAIN_STATUS_ABSENT 0 // absent, empty slot
 #define MAIN_STATUS_ALIVE 1
 #define MAIN_STATUS_DEAD 2
 #define MAIN_STATUS_DUST 3
 #define MAIN_STATUS_STONE 4
 #define MAIN_STATUS_FLED 5
-#define MAIN_STATUS_SURFACE 6		// fled to surface?
+#define MAIN_STATUS_SURFACE 6 // fled to surface?
 #define MAIN_STATUS_WON 7
 /* main status modifiers */
-#define MAIN_STATUS_SPLIT 10		// split from party, added to previous status (e.g 11 is splitted and alive : waiting for the active pc to return).
+#define MAIN_STATUS_SPLIT                                                      \
+  10 // split from party, added to previous status (e.g 11 is splitted and alive
+     // : waiting for the active pc to return).
 
-
-/* adven[i].skills */     //complete
+/* adven[i].skills */ // complete
 #define SKILL_STRENGTH 0
 #define SKILL_DEXTERITY 1
 #define SKILL_INTELLIGENCE 2
@@ -79,8 +80,7 @@
 #define SKILL_POISON 17
 #define SKILL_LUCK 18
 
-
-/* adven[i].traits */      //complete
+/* adven[i].traits */ // complete
 #define TRAIT_TOUGHNESS 0
 #define TRAIT_MAGICALLY_APT 1
 #define TRAIT_AMBIDEXTROUS 2
@@ -97,12 +97,13 @@
 #define TRAIT_CHRONIC_DISEASE 13
 #define TRAIT_BAD_BACK 14
 
-/* adven[i].race */     //complete
+/* adven[i].race */ // complete
 #define RACE_HUMAN 0
 #define RACE_NEPHIL 1
 #define RACE_SLITH 2
 
-/* adven[i].status*/      //complete - assign a positive value for a help pc effect, a negative for harm pc
+/* adven[i].status*/ // complete - assign a positive value for a help pc effect,
+                     // a negative for harm pc
 #define STATUS_POISONED_WEAPON 0
 #define STATUS_BLESS 1
 #define STATUS_POISON 2
@@ -111,8 +112,8 @@
 #define STATUS_MAGIC_RESISTANCE 5
 #define STATUS_WEBS 6
 #define STATUS_DISEASE 7
-#define STATUS_INVISIBLE 8      //sanctuary
-#define STATUS_DUMB	9
+#define STATUS_INVISIBLE 8 // sanctuary
+#define STATUS_DUMB 9
 #define STATUS_MARTYRS_SHIELD 10
 #define STATUS_ASLEEP 11
 #define STATUS_PARALYZED 12
@@ -124,27 +125,35 @@
 #define DAMAGE_FIRE 1
 #define DAMAGE_POISON 2
 #define DAMAGE_MAGIC 3
-#define DAMAGE_UNBLOCKABLE 4 //from the source files - the display is the same as the magic one (damage_monst in SPECIALS.cpp or pc_record_type::runTrap in PARTY.cpp)
+#define DAMAGE_UNBLOCKABLE                                                     \
+  4 // from the source files - the display is the same as the magic one
+    // (damage_monst in SPECIALS.cpp or pc_record_type::runTrap in PARTY.cpp)
 #define DAMAGE_COLD 5
-#define DAMAGE_UNDEAD 6 //from the source files - the display is the same as the weapon one
-#define DAMAGE_DEMON 7 //from the source files - the display is the same as the weapon one
-// 8 and 9 aren't defined : doesn't print any damage. According to the source files the 9 is DAMAGE_MARKED though. Wrong ?
-#define DAMAGE_MARKED 10	// usage: DAMAGE_MARKED + damage_type
-#define DAMAGE_NO_PRINT 30	// usage: DAMAGE_NO_PRINT + damage_type
+#define DAMAGE_UNDEAD                                                          \
+  6 // from the source files - the display is the same as the weapon one
+#define DAMAGE_DEMON                                                           \
+  7 // from the source files - the display is the same as the weapon one
+// 8 and 9 aren't defined : doesn't print any damage. According to the source
+// files the 9 is DAMAGE_MARKED though. Wrong ?
+#define DAMAGE_MARKED 10   // usage: DAMAGE_MARKED + damage_type
+#define DAMAGE_NO_PRINT 30 // usage: DAMAGE_NO_PRINT + damage_type
 
 /* trap type */
 /* used in pc_record_type::runTrap(...) */
 #define TRAP_RANDOM 0
 #define TRAP_BLADE 1
 #define TRAP_DART 2
-#define TRAP_GAS 3			// poisons all
-#define TRAP_EXPLOSION 4	// damages all => uses c_town.difficulty rather than trap_level to calculates damages (and even c_town.difficulty /13).
+#define TRAP_GAS 3 // poisons all
+#define TRAP_EXPLOSION                                                         \
+  4 // damages all => uses c_town.difficulty rather than trap_level to
+    // calculates damages (and even c_town.difficulty /13).
 #define TRAP_SLEEP_RAY 5
 #define TRAP_FALSE_ALARM 6
 #define TRAP_DRAIN_XP 7
-#define TRAP_ALERT 8		// makes town hostile
-#define TRAP_FLAMES 9		// damages all => uses trap_level (*5) to calculates damages.
-#define TRAP_DUMBFOUND 10   //dumbfound all
+#define TRAP_ALERT 8 // makes town hostile
+#define TRAP_FLAMES                                                            \
+  9 // damages all => uses trap_level (*5) to calculates damages.
+#define TRAP_DUMBFOUND 10 // dumbfound all
 #define TRAP_DISEASE 11
 #define TRAP_DISEASE_ALL 12
 
@@ -154,24 +163,34 @@
 #define ITEM_POLE 3
 
 /*      items[i].variety    a.k.a item type (in editor)      */
-#define ITEM_TYPE_NO_ITEM 0     //a guess, i can't test it ; but should be accurate      => confirmed by the code
+#define ITEM_TYPE_NO_ITEM                                                      \
+  0 // a guess, i can't test it ; but should be accurate      => confirmed by
+    // the code
 #define ITEM_TYPE_ONE_HANDED 1
 #define ITEM_TYPE_TWO_HANDED 2
-#define ITEM_TYPE_GOLD 3     //a guess, i can't test it ; but should be accurate     => confirmed by the code
+#define ITEM_TYPE_GOLD                                                         \
+  3 // a guess, i can't test it ; but should be accurate     => confirmed by the
+    // code
 #define ITEM_TYPE_BOW 4
 #define ITEM_TYPE_ARROW 5
 #define ITEM_TYPE_THROWN_MISSILE 6
-#define ITEM_TYPE_POTION 7       // potion/magic item
-#define ITEM_TYPE_SCROLL 8       // scroll/magic item
+#define ITEM_TYPE_POTION 7 // potion/magic item
+#define ITEM_TYPE_SCROLL 8 // scroll/magic item
 #define ITEM_TYPE_WAND 9
 #define ITEM_TYPE_TOOL 10
-#define ITEM_TYPE_FOOD 11        //a guess, i can't test it ; but should be accurate      => confirmed by the code
+#define ITEM_TYPE_FOOD                                                         \
+  11 // a guess, i can't test it ; but should be accurate      => confirmed by
+     // the code
 #define ITEM_TYPE_SHIELD 12
 #define ITEM_TYPE_ARMOR 13
 #define ITEM_TYPE_HELM 14
 #define ITEM_TYPE_GLOVES 15
-#define ITEM_TYPE_SHIELD_2 16    //don't know why a second type of shield is used ; it is actually checked in the armor code (item >= 12 and <= 17)
-#define ITEM_TYPE_BOOTS 17       //(continued) and you can't equip another (12) shield while wearing it ... I didn't find a single item with this property in the bladbase.exs ...
+#define ITEM_TYPE_SHIELD_2                                                     \
+  16 // don't know why a second type of shield is used ; it is actually checked
+     // in the armor code (item >= 12 and <= 17)
+#define ITEM_TYPE_BOOTS                                                        \
+  17 //(continued) and you can't equip another (12) shield while wearing it ...
+     //I didn't find a single item with this property in the bladbase.exs ...
 #define ITEM_TYPE_RING 18
 #define ITEM_TYPE_NECKLACE 19
 #define ITEM_TYPE_WEAPON_POISON 20
@@ -179,7 +198,7 @@
 #define ITEM_TYPE_PANTS 22
 #define ITEM_TYPE_CROSSBOW 23
 #define ITEM_TYPE_BOLTS 24
-#define ITEM_TYPE_MISSILE_NO_AMMO 25       //e.g slings
+#define ITEM_TYPE_MISSILE_NO_AMMO 25 // e.g slings
 
 /*      items[i].ability      */
 
@@ -235,7 +254,8 @@
 #define ITEM_PROTECT_FROM_GIANTS 61
 #define ITEM_PROTECT_FROM_DISEASE 62
 
-/* NonSpell Use ;  the constant refers to both the positive and negative effect (don't mind the name). */
+/* NonSpell Use ;  the constant refers to both the positive and negative effect
+ * (don't mind the name). */
 /*#define ITEM_POISON_WEAPON 70        //put poison on weapon
 #define ITEM_BLESS_USER 71
 #define ITEM_CURE_POISON 72
@@ -262,32 +282,31 @@
 #define ITEM_FLYING 93
 #define ITEM_MAJOR_HEALING 94*/
 
-#define ITEM_POISON_WEAPON              70 //put poison on weapon
-#define ITEM_BLESS_CURSE                71
-#define ITEM_AFFECT_POISON              72
-#define ITEM_HASTE_SLOW                 73
-#define ITEM_AFFECT_INVULN              74
-#define ITEM_AFFECT_MAGIC_RES           75
-#define ITEM_AFFECT_WEB                 76
-#define ITEM_AFFECT_DISEASE             77
-#define ITEM_AFFECT_SANCTUARY           78
-#define ITEM_AFFECT_DUMBFOUND           79
-#define ITEM_AFFECT_MARTYRS_SHIELD      80
-#define ITEM_AFFECT_SLEEP               81
-#define ITEM_AFFECT_PARALYSIS           82
-#define ITEM_AFFECT_ACID                83
-#define ITEM_BLISS                      84
-#define ITEM_AFFECT_EXPERIENCE          85
-#define ITEM_AFFECT_SKILL_POINTS        86
-#define ITEM_AFFECT_HEALTH              87
-#define ITEM_AFFECT_SPELL_POINTS        88
-#define ITEM_DOOM                       89
-#define ITEM_LIGHT                      90
-#define ITEM_STEALTH                    91
-#define ITEM_FIREWALK                   92
-#define ITEM_FLYING                     93
-#define ITEM_MAJOR_HEALING              94
-
+#define ITEM_POISON_WEAPON 70 // put poison on weapon
+#define ITEM_BLESS_CURSE 71
+#define ITEM_AFFECT_POISON 72
+#define ITEM_HASTE_SLOW 73
+#define ITEM_AFFECT_INVULN 74
+#define ITEM_AFFECT_MAGIC_RES 75
+#define ITEM_AFFECT_WEB 76
+#define ITEM_AFFECT_DISEASE 77
+#define ITEM_AFFECT_SANCTUARY 78
+#define ITEM_AFFECT_DUMBFOUND 79
+#define ITEM_AFFECT_MARTYRS_SHIELD 80
+#define ITEM_AFFECT_SLEEP 81
+#define ITEM_AFFECT_PARALYSIS 82
+#define ITEM_AFFECT_ACID 83
+#define ITEM_BLISS 84
+#define ITEM_AFFECT_EXPERIENCE 85
+#define ITEM_AFFECT_SKILL_POINTS 86
+#define ITEM_AFFECT_HEALTH 87
+#define ITEM_AFFECT_SPELL_POINTS 88
+#define ITEM_DOOM 89
+#define ITEM_LIGHT 90
+#define ITEM_STEALTH 91
+#define ITEM_FIREWALK 92
+#define ITEM_FLYING 93
+#define ITEM_MAJOR_HEALING 94
 
 /* Spell Usable */
 
@@ -309,7 +328,7 @@
 #define ITEM_SPELL_SHOCKSTORM 125
 #define ITEM_SPELL_PARALYSIS 126
 #define ITEM_SPELL_WEB_SPELL 127
-#define ITEM_SPELL_STRENGTHEN_TARGET 128 //wand of carrunos effect
+#define ITEM_SPELL_STRENGTHEN_TARGET 128 // wand of carrunos effect
 #define ITEM_SPELL_QUICKFIRE 129
 #define ITEM_SPELL_MASS_CHARM 130
 #define ITEM_SPELL_MAGIC_MAP 131
@@ -383,12 +402,12 @@
 #define MONSTER_THROWS_DARTS 1
 #define MONSTER_SHOOTS_ARROWS 2
 #define MONSTER_THROWS_SPEARS 3
-#define MONSTER_THROWS_ROCKS1 4    //4-24 damages
-#define MONSTER_THROWS_ROCKS2 5    //5-30 damages
-#define MONSTER_THROWS_ROCKS3 6    //6-36 damages
+#define MONSTER_THROWS_ROCKS1 4 // 4-24 damages
+#define MONSTER_THROWS_ROCKS2 5 // 5-30 damages
+#define MONSTER_THROWS_ROCKS3 6 // 6-36 damages
 #define MONSTER_THROWS_RAZORDISKS 7
 #define MONSTER_PETRIFICATION_RAY 8
-#define MONSTER_SP_DRAIN_RAY 9    //spell points drain ray
+#define MONSTER_SP_DRAIN_RAY 9 // spell points drain ray
 #define MONSTER_HEAT_RAY 10
 #define MONSTER_INVISIBLE 11
 #define MONSTER_SPLITS 12
@@ -427,14 +446,14 @@
 #define MONSTER_RADIATE_ANTIMAGIC_FIELDS 4
 #define MONSTER_RADIATE_SLEEP_FIELDS 5
 #define MONSTER_RADIATE_STINKING_CLOUDS 6
-//7,8 and 9 are unused
-#define MONSTER_SUMMON1 10    //5 percent chance
-#define MONSTER_SUMMON2 11    //20 percent chance
-#define MONSTER_SUMMON3 12    //50 percent chance
-//13 and 14 are unused
-#define MONSTER_DEATH_TRIGGERS 15        //death triggers global special
+// 7,8 and 9 are unused
+#define MONSTER_SUMMON1 10 // 5 percent chance
+#define MONSTER_SUMMON2 11 // 20 percent chance
+#define MONSTER_SUMMON3 12 // 50 percent chance
+// 13 and 14 are unused
+#define MONSTER_DEATH_TRIGGERS 15 // death triggers global special
 
-/* Terrains Specials Properties : scenario.ter_types[i].special */      //complete
+/* Terrains Specials Properties : scenario.ter_types[i].special */ // complete
 
 #define TER_SPEC_NONE 0
 #define TER_SPEC_CHANGE_WHEN_STEP_ON 1
@@ -461,16 +480,16 @@
 #define TER_SPEC_CAN_BE_USED 22
 #define TER_SPEC_CALL_SPECIAL_WHEN_USED 23
 
-//stuff used in actions.cpp
+// stuff used in actions.cpp
 
-//Startup button rects (also used in blades.cpp)
+// Startup button rects (also used in blades.cpp)
 #define STARTBTN_LOAD 0
 #define STARTBTN_NEW 1
 #define STARTBTN_ORDER 2
 #define STARTBTN_JOIN 3
 #define STARTBTN_CUSTOM 4
 
-//Shop rects
+// Shop rects
 #define SHOPRECT_WHOLE_AREA 0
 #define SHOPRECT_ACTIVE_AREA 1
 #define SHOPRECT_GRAPHIC 2
@@ -494,12 +513,12 @@
 #define PCBTN_INFO 3
 #define PCBTN_TRADE 4
 
-//Spell select
+// Spell select
 #define SPELL_SELECT_NONE 0
 #define SPELL_SELECT_ACTIVE 1
 #define SPELL_SELECT_ANY 2
 
-//Spell refer
+// Spell refer
 #define SPELL_REFER 0
 #define SPELL_IMMED 1
 #define SPELL_TARGET 2
@@ -535,9 +554,9 @@
     3 - Hostile, Type B
 */
 
-//Specials and Talks
+// Specials and Talks
 
-//eSpecContext
+// eSpecContext
 
 #define SPEC_OUT_MOVE 0
 #define SPEC_TOWN_MOVE 1
@@ -559,7 +578,7 @@
 #define SPEC_USE_SPACE 17
 #define SPEC_SEE_MONST 18
 
-//eSpecNodeType
+// eSpecNodeType
 
 #define SPEC_NULL 0
 #define SPEC_SET_SDF 1
@@ -707,40 +726,39 @@
 #define SPEC_OUT_MOVE_PARTY 228
 #define SPEC_OUT_STORE 229
 
-
 // eTalkNodeType
 
-#define    TALK_REGULAR 0
-#define    TALK_DEP_ON_SDF 1
-#define    TALK_SET_SDF 2
-#define    TALK_INN 3
-#define    TALK_DEP_ON_TIME 4
-#define    TALK_DEP_ON_TIME_AND_EVENT 5
-#define    TALK_DEP_ON_TOWN 6
-#define    TALK_BUY_ITEMS 7
-#define    TALK_TRAINING 8
-#define    TALK_BUY_MAGE 9
-#define    TALK_BUY_PRIEST 10
-#define    TALK_BUY_ALCHEMY 11
-#define    TALK_BUY_HEALING 12
-#define    TALK_SELL_WEAPONS 13
-#define    TALK_SELL_ARMOR 14
-#define    TALK_SELL_ITEMS 15
-#define    TALK_IDENTIFY 16
-#define    TALK_ENCHANT 17
-#define    TALK_BUY_INFO 18
-#define    TALK_BUY_SDF 19
-#define    TALK_BUY_SHIP 20
-#define    TALK_BUY_HORSE 21
-#define    TALK_BUY_SPEC_ITEM 22
-#define    TALK_BUY_JUNK 23
-#define    TALK_BUY_TOWN_LOC 24
-#define    TALK_END_FORCE 25
-#define    TALK_END_FIGHT 26
-#define    TALK_END_ALARM 27 // Town hostile
-#define    TALK_END_DIE 28
-#define    TALK_CALL_TOWN_SPEC 29
-#define    TALK_CALL_SCEN_SPEC 30
+#define TALK_REGULAR 0
+#define TALK_DEP_ON_SDF 1
+#define TALK_SET_SDF 2
+#define TALK_INN 3
+#define TALK_DEP_ON_TIME 4
+#define TALK_DEP_ON_TIME_AND_EVENT 5
+#define TALK_DEP_ON_TOWN 6
+#define TALK_BUY_ITEMS 7
+#define TALK_TRAINING 8
+#define TALK_BUY_MAGE 9
+#define TALK_BUY_PRIEST 10
+#define TALK_BUY_ALCHEMY 11
+#define TALK_BUY_HEALING 12
+#define TALK_SELL_WEAPONS 13
+#define TALK_SELL_ARMOR 14
+#define TALK_SELL_ITEMS 15
+#define TALK_IDENTIFY 16
+#define TALK_ENCHANT 17
+#define TALK_BUY_INFO 18
+#define TALK_BUY_SDF 19
+#define TALK_BUY_SHIP 20
+#define TALK_BUY_HORSE 21
+#define TALK_BUY_SPEC_ITEM 22
+#define TALK_BUY_JUNK 23
+#define TALK_BUY_TOWN_LOC 24
+#define TALK_END_FORCE 25
+#define TALK_END_FIGHT 26
+#define TALK_END_ALARM 27 // Town hostile
+#define TALK_END_DIE 28
+#define TALK_CALL_TOWN_SPEC 29
+#define TALK_CALL_SCEN_SPEC 30
 
 /* Spells
 
