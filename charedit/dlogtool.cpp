@@ -577,9 +577,11 @@ INT_PTR CALLBACK dummy_dialog_proc(HWND hDlg, UINT message, WPARAM, LPARAM) {
           case 9:
           case 10:
           case 11:
-            sprintf(((free_item < 10) ? text_long_str[free_item]
-                                      : text_short_str[free_item - 10]),
-                    "");
+	    if (free_item < 10) {
+              text_long_str[free_item][0] = 0;
+	    } else {
+              text_short_str[free_item - 10][0] = 0;
+	    }
             if (str_stored == TRUE) {
               if (free_item < 10) {
                 sprintf(text_long_str[free_item], "%s",
@@ -863,7 +865,7 @@ void cd_get_item_text(short dlog_num, short item_num, char *str) {
     if (edit_box != NULL)
       GetWindowText(edit_box, str, 255);
     else
-      sprintf(str, "");
+      str[0] = 0;
     // add_string_to_buf(str);
     return;
   }

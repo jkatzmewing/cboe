@@ -400,7 +400,8 @@ void draw_items(short clear_first)
   }
   for (i = 0; i < 24; i++) // Loop through items and draw each
     if (adven[current_active_pc].items[i].variety > 0) { // i.e. does item exist
-      sprintf((char *)to_draw, "");
+      //sprintf((char *)to_draw, "");
+      to_draw[0] = 0;
       if (adven[current_active_pc].items[i].item_properties % 2 == 0)
         sprintf((char *)to_draw, "%d. %s  ", i + 1,
                 adven[current_active_pc].items[i].name);
@@ -617,12 +618,13 @@ void display_party(short, short clear_first)
                                        "Poisoned Weap.", 0, 9);
                   cur_rect++;
                 }
-              if (adven[i].status[1] > 0)
+              if (adven[i].status[1] > 0) {
                 if (cur_rect <= 9) {
                   char_win_draw_string(main_dc, pc_status_rect[cur_rect],
                                        "Blessed", 0, 9);
                   cur_rect++;
-                } else if (adven[i].status[1] < 0)
+                }
+	      } else if (adven[i].status[1] < 0)
                   if (cur_rect <= 9) {
                     char_win_draw_string(main_dc, pc_status_rect[cur_rect],
                                          "Cursed", 0, 9);
@@ -634,12 +636,13 @@ void display_party(short, short clear_first)
                                        "Poisoned", 0, 9);
                   cur_rect++;
                 }
-              if (adven[i].status[3] > 0)
+              if (adven[i].status[3] > 0) {
                 if (cur_rect <= 9) {
                   char_win_draw_string(main_dc, pc_status_rect[cur_rect],
                                        "Hasted", 0, 9);
                   cur_rect++;
-                } else if (adven[i].status[3] < 0)
+                }
+	      } else if (adven[i].status[3] < 0)
                   if (cur_rect <= 9) {
                     char_win_draw_string(main_dc, pc_status_rect[cur_rect],
                                          "Slowed", 0, 9);
@@ -1067,7 +1070,7 @@ void GetIndString(char *str, short i, short j) {
 
   len = LoadString(store_hInstance, resnum, str, 256);
   if (len == 0) {
-    sprintf(str, "");
+    str[0] = 0;
     return;
   }
   for (k = 0; k < 256; k++) {
